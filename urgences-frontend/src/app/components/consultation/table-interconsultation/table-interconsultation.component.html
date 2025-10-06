@@ -1,0 +1,168 @@
+<div class="table-wrapper">
+  <div class="table-card">
+    <div class="caption-frame">
+      <div class="table-caption">
+        <div class="search-box">
+          <p-iconfield iconPosition="left" styleClass="w-full">
+            <p-inputicon><i class="pi pi-search"></i></p-inputicon>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="searchValue"
+              (input)="dt1.filterGlobal(searchValue, 'contains')"
+              placeholder="Rechercher un mot-clé"
+            />
+          </p-iconfield>
+        </div>
+        <div>
+          <p-button
+            label="Réinitialiser"
+            [outlined]="true"
+            icon="pi pi-filter-slash"
+            (click)="clear()"
+            styleClass="p-button-secondary custom-clear-btn"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p-table
+      #dt1
+      [value]="filteredData"
+      dataKey="ip"
+      [rows]="10"
+      [rowsPerPageOptions]="[10,25,50]"
+      [paginator]="true"
+      [loading]="false"
+      [globalFilterFields]="['ip','nom','genre','age','medecinDemandeur','date','statut','detail']"
+      showGridlines
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              IP
+              <p-columnFilter type="text" field="ip" display="menu" />
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              Nom
+              <p-columnFilter type="text" field="nom" display="menu" />
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              Genre
+              <p-columnFilter field="genre" matchMode="equals" display="menu">
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                  <p-dropdown
+                    [options]="genreOptions"
+                    optionLabel="label"
+                    optionValue="value"
+                    [ngModel]="value"
+                    (onChange)="filter($event.value)"
+                    placeholder="Choisir un genre"
+                    styleClass="w-full"
+                  >
+                    <ng-template pTemplate="item" let-option>
+                      <p-tag
+                        [value]="option.label"
+                        [severity]="getGenreSeverity(option.value)"
+                      ></p-tag>
+                    </ng-template>
+                    <ng-template pTemplate="selectedItem" let-selectedItem>
+                      <p-tag
+                        *ngIf="selectedItem"
+                        [value]="selectedItem.label"
+                        [severity]="getGenreSeverity(selectedItem.value)"
+                      ></p-tag>
+                    </ng-template>
+                  </p-dropdown>
+                </ng-template>
+              </p-columnFilter>
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              Âge
+              <p-columnFilter type="text" field="age" display="menu" />
+            </div>
+          </th>
+          <th style="min-width:16rem">
+            <div class="flex items-center justify-between">
+              Medecin Demandeur
+              <p-columnFilter type="text" field="medecinDemandeur" display="menu" />
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              Date
+              <p-columnFilter type="date" field="date" display="menu" />
+            </div>
+          </th>
+          <th style="min-width:10rem">
+            <div class="flex items-center justify-between">
+              Statut
+              <p-columnFilter field="statut" matchMode="equals" display="menu">
+                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                  <p-select
+                    [ngModel]="value"
+                    [options]="statusOptions"
+                    (onChange)="filter($event.value)"
+                    placeholder="Choisir un statut"
+                    class="w-full"
+                  >
+                    <ng-template pTemplate="item" let-option>
+                      <p-tag
+                        [value]="option.label"
+                        [severity]="getSeverity(option.value)"
+                      ></p-tag>
+                    </ng-template>
+                  </p-select>
+                </ng-template>
+              </p-columnFilter>
+            </div>
+          </th>
+          <th style="min-width:10rem">Détail</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-row>
+        <!-- ✅ ligne modifiée pour coloration rouge si urgent -->
+        <tr [ngClass]="{ 'urgent-row': row.urgent === 1 }">
+          <td>{{ row.ip }}</td>
+          <td>{{ row.nom }}</td>
+          <td>
+            <p-tag
+              [value]="row.genre"
+              [severity]="getGenreSeverity(row.genre)"
+              styleClass="genre-tag"
+            ></p-tag>
+          </td>
+          <td>{{ row.age }}</td>
+          <td>{{ row.medecinDemandeur }}</td>
+          <td>{{ row.date | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <p-tag [value]="row.statut" [severity]="getSeverity(row.statut)"></p-tag>
+          </td>
+          <td>
+            <button
+              pButton
+              icon="pi pi-plus"
+              class="circle-btn"
+              severity="info"
+              (click)="openDetail(row)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="8">Aucune donnée trouvée.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

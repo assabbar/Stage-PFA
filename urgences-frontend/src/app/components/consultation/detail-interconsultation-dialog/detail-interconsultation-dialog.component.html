@@ -1,0 +1,85 @@
+<div class="card-wrapper">
+  <!-- Card Patient -->
+  <p-card class="custom-card">
+    <ng-template pTemplate="header">
+      <div class="card-header">
+        <img src="assets/icons/patiennt.png" alt="patient icon" class="custom-avatar" />
+        <span class="patient-name">{{ data.nom }}</span>
+      </div>
+      <p-divider class="custom-divider"></p-divider>
+    </ng-template>
+
+    <div class="card-content">
+      <div class="info-row">
+        <label>IP</label>
+        <span class="ip-bold">{{ data.ip }}</span>
+      </div>
+      <div class="info-row">
+        <label>Genre</label>
+        <p-tag [value]="data.genre" [severity]="getGenreSeverity(data.genre)" class="custom-badge"></p-tag>
+      </div>
+      <div class="info-row">
+        <label>Âge</label><span>{{ data.age }}</span>
+      </div>
+      <div class="info-row">
+        <label>Médecin Demandeur</label><span>{{ data.medecinDemandeur }}</span>
+      </div>
+      <div class="info-row">
+        <label>Date</label><span>{{ data.date | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      <div class="info-row">
+        <label>Service demandeur</label><span>{{ data.serviceDemandeur }}</span>
+      </div>
+      <div class="info-row">
+        <label>Service destinataire</label><span>{{ data.serviceDestinataire }}</span>
+      </div>
+      <div class="info-row info-row-last">
+        <label>Statut</label>
+        <p-tag [value]="data.statut" [severity]="getStatutSeverity(data.statut)" class="custom-badge"></p-tag>
+      </div>
+    </div>
+  </p-card>
+
+    <!-- Card Demande d’interconsultation -->
+    <p-card class="demande-card">
+      <ng-template pTemplate="header">
+        <div class="demande-header">
+          <img src="assets/icons/email.png" alt="chat icon" class="chat-icon" />
+          <span class="demande-title">Demande d’interconsultation</span>
+        </div>
+        <hr class="demande-divider" />
+      </ng-template>
+
+      <div class="demande-content">
+        <div class="demande-scroll">
+          <p class="demande-message">{{ data.demande.texte }}</p>
+        </div>
+        <div class="demande-date">{{ data.demande.date }}</div>
+      </div>
+    </p-card>
+
+
+  <!--Zone de messages style chat -->
+<div class="scrollable-card">
+  <div class="scrollable-content">
+    <div *ngFor="let msg of messages" 
+         [ngClass]="{
+           'message-card': true,
+           'sent': isSentByDoctor(msg.nomMedecin),
+           'received': !isSentByDoctor(msg.nomMedecin)
+         }">
+         
+      
+      <div class="message-nomMedecin">{{ msg.nomMedecin }}</div>
+
+      
+      <p class="message-text">{{ msg.texte }}</p>
+
+      
+      <div class="message-date">{{ msg.date }}</div>
+    </div>
+  </div>
+</div>
+
+  
+</div>

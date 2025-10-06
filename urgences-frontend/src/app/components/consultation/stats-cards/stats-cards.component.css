@@ -1,0 +1,19 @@
+.cards-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.blue { background-color: #3b82f6; }
+.green { background-color: #22c55e; }
+.gray { background-color: #6b7280; }
+.red { background-color: #ef4444; }

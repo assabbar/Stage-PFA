@@ -1,0 +1,108 @@
+<p-panel header="chisir un service" class="pad-4">
+  <div class="flex gap-3 justify-content-center">
+    <p-card
+      styleClass="w-30rem"
+      header="radiologie"
+      [style]="{ cursor: 'pointer' }"
+      (click)="navigateTo('/radiology')"
+    >
+      <ng-template pTemplate="header">
+        <img
+          src="radiologie.png"
+          alt="radiologie"
+          style="width: 100%; height: 160px; object-fit: cover"
+        />
+      </ng-template>
+      <div class="p-mt-2">voir les resultats des demandes radio en cours.</div>
+    </p-card>
+
+    <p-card
+      styleClass="w-30rem"
+      header="consultations"
+      [style]="{ cursor: 'pointer' }"
+      (click)="navigateTo('/consultation')"
+    >
+      <ng-template pTemplate="header">
+        <img
+          src="consultation.png"
+          alt="consultations"
+          style="width: 100%; height: 160px; object-fit: cover"
+        />
+      </ng-template>
+      <div class="p-mt-2">
+        voir la progression des consultations avec un docteur spécialiste.
+      </div>
+    </p-card>
+
+    <p-card
+      styleClass="w-30rem"
+      header="laboratoire"
+      [style]="{ cursor: 'pointer' }"
+      (click)="navigateTo('/labo')"
+    >
+      <ng-template pTemplate="header">
+        <img
+          src="laboratoire.png"
+          alt="laboratoire"
+          style="width: 100%; height: 160px; object-fit: cover"
+        />
+      </ng-template>
+      <div class="p-mt-2">voir la progression des test labo en cours.</div>
+    </p-card>
+  </div>
+</p-panel>
+
+<p-panel header="Présentation" class="pad-4">
+  <p>
+    Les urgences sont : le service hospitalier chargé d'accueillir et de prendre
+    en charge les malades et les blessés qui se présentent d'eux-mêmes ou sont
+    amenés par les services de secours (pompiers...). Dans le Centre Hospitalier
+    Universitaire Hassan II, il existe des urgences spécialisées (maternité,
+    psychiatrie, pédiatrie...), dans lesquelles vous pouvez vous rendre ou être
+    orienté directement suivant votre cas.
+  </p>
+</p-panel>
+
+<p-panel header="L'attente aux urgences" class="pad-4">
+  <p>
+    Vous devez savoir que beaucoup d’effort sont déployés pour diminuer votre
+    temps d'attente. Mais il reste néanmoins de nombreuses raisons pour que
+    votre temps d’attente aux urgences soit plus long que vous ne l’espériez. En
+    effet, les patients arrivent aux urgences sans rendez-vous et parfois en
+    même temps (par exemple après un accident de la route). En outre, le flux
+    excessif des patients qui arrivent directement aux urgences de notre Centre
+    qui relève du niveau tertiaire de soin, sans passer par le premier et le
+    deuxième niveau n’est pas sans conséquences sur la disponibilité des locaux,
+    du matériel, et des équipes. Ce qui implique un encombrement des locaux des
+    urgences par des patients relevant de niveaux de soin inférieurs (soin
+    primaire et soin secondaire). C’est pour quoi, même si chacun a le sentiment
+    légitime que son cas justifierait une prise en charge immédiate, n'oubliez
+    pas qu'au même moment, les équipes des urgences peuvent être en train de
+    prendre en charge une personne en danger de mort. Vous pouvez aussi être
+    amené à attendre les résultats des examens qui ont été pratiqués
+    (radiologie, laboratoire) ou la venue d'un spécialiste. Sachez juste que
+    dans certains cas, le médecin peut différer sa prise de décision, afin de
+    voir comment évoluent vos symptômes, spontanément ou après traitement.
+  </p>
+</p-panel>
+
+<p-panel header="La près-urgence" class="pad-4">
+  <p>
+    La près-urgence a été imaginée et conçue à fin de permettre un triage à
+    l’entré des urgences, et par là, détourner les cas qui ne présentent pas les
+    caractères d’urgence à une salle distincte pour bénéficier de leur
+    consultation ; et réorienter vers des urgences spécialisées les patients
+    dont le cas en présent la nécessité. Pour alléger d’une quelconque façon la
+    demande en activité de soin au niveau des urgences adulte C0 relevant de
+    l'hôpital des spécialités du CHU HII.
+  </p>
+</p-panel>
+<p-panel header="La situation administrative" class="pad-4">
+  <p>
+    La régularisation de la situation administrative pour toutes les activités
+    de soin du service se fait au niveau du guichet dédié à cette fin avant d’en
+    bénéficier; sauf pour les patients dont le médecin juge le cas comme:
+    "nécessitant une prise en charge immédiate". Ces cas sont admis et pris en
+    charge d’office. Leur situation administrative sera réglée à la sortie.
+  </p>
+</p-panel>

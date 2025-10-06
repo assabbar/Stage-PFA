@@ -1,0 +1,103 @@
+
+.table-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  background: #ffffff !important;  
+}
+
+
+.search-box {
+  flex: 0 0 280px;
+}
+.search-box input[pInputText] {
+  width: 100%;
+}
+
+
+.custom-clear-btn {
+  border-color: #000 !important;
+  color: #000 !important;
+}
+.custom-clear-btn:hover,
+.custom-clear-btn:focus {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+
+.table-wrapper {
+  padding: 1rem;
+  background: transparent; 
+  border-radius: 18px;
+}
+
+
+.table-card {
+  background: transparent; 
+  border: 1px solid rgba(0, 98, 255, 0.12);
+  border-radius: 16px;
+  box-shadow:
+    0 12px 30px rgba(0, 98, 255, 0.18),
+    0 2px 8px rgba(0, 98, 255, 0.12); 
+  overflow: hidden;
+}
+
+.caption-frame {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 98, 255, 0.12);
+}
+
+/* PrimeNG Datatable:*/
+:host ::ng-deep .p-datatable {
+  background: transparent;
+  border: none;
+}
+:host ::ng-deep .p-datatable .p-datatable-header {
+  background: #ffffff !important; 
+  border: none;
+  padding: 0;
+}
+:host ::ng-deep .p-datatable-table > thead > tr > th,
+:host ::ng-deep .p-datatable-table > tbody > tr > td {
+  border-color: rgba(0, 98, 255, 0.12); 
+}
+
+/* (Optionnel) hover doux sur les cellules */
+:host ::ng-deep .p-datatable-table > tbody > tr:hover > td {
+  background: rgba(0, 98, 255, 0.03);
+  transition: background .2s ease;
+}
+
+/* (Optionnel) bouton rond détail */
+.circle-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Badges Genre dans le tableau*/
+
+
+:host ::ng-deep .genre-tag.p-tag {
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  line-height: 1.1;
+  font-size: .85rem;
+}
+.urgent-row {
+  background-color: rgba(241, 7, 7, 0.527) !important; /* Rouge doux 20% */
+}
+
+
+/* NOTE :
+   Les classes .p-tag-homme et .p-tag-femme
+   sont maintenant définies GLOBAL (styles.scss)
+   pour fonctionner dans le menu de filtre (overlay).
+*/

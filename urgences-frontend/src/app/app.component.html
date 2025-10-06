@@ -1,0 +1,38 @@
+<div class="layout-wrapper">
+  <p-toolbar>
+    <ng-template #start>
+      <p-button
+        icon="pi pi-bars"
+        class="mr-2"
+        text
+        severity="secondary"
+        (click)="toggleMenu()"
+        label=""
+      />
+      <a [routerLink]="['/']">
+      <img src="chu.png" alt="Brand Logo" height="40" />
+      </a>
+    </ng-template>
+    <ng-template #end> </ng-template>
+  </p-toolbar>
+
+  <p-drawer [(visible)]="visible" header="Drawer">
+    <p-panelMenu [model]="menuItems"></p-panelMenu>
+  </p-drawer>
+
+  <div class="main-container">
+    <!--<div class="layout-sidebar">
+      <p>sidebar</p>
+    </div> in case i want a visible side menu-->
+  
+    <div class="layout-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  
+  <footer class="layout-footer">
+    <div class="p-p-3 p-text-center p-mt-4">
+      <small>© 2025 Centre Hospitalier Universitaire Hassan II.</small>
+    </div>
+  </footer>
+</div>

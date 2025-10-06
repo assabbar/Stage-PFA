@@ -1,0 +1,31 @@
+# Maven / Java
+/Backend/urgences-backend/target/
+/Backend/urgences-backend/*.iml
+**/target/
+*.class
+*.jar
+*.war
+*.log
+/.idea/
+.project
+.classpath
+.settings/
+/.mvn/wrapper/maven-wrapper.jar
+
+# Node / Angular
+/urgences-frontend/node_modules/
+/urgences-frontend/dist/
+/urgences-frontend/.angular/
+/urgences-frontend/npm-debug.log*
+/urgences-frontend/yarn-debug.log*
+/urgences-frontend/yarn-error.log*
+
+# Environment files
+.env
+.env.*
+**/.env
+
+# OS files
+Thumbs.db
+ehthumbs.db
+.DS_Store

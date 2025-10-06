@@ -1,0 +1,42 @@
+<!-- Top Bar -->
+<div class="top-bar">
+  <h1>Liste d'Interconsultation</h1>
+</div>
+
+<!-- Cards -->
+<div class="stats-container">
+  <div class="stat-card total">
+    <div class="left">
+      <span class="number">{{ stats.total }}</span>
+      <span class="label">Total interconsultations</span>
+    </div>
+    <i class="pi pi-users"></i>
+  </div>
+
+  <div class="stat-card suivi">
+    <div class="left">
+      <span class="number">{{ stats.enSuivi }}</span>
+      <span class="label">Interconsultation en suivi</span>
+    </div>
+    <i class="pi pi-chart-line"></i>
+  </div>
+
+  <div class="stat-card cloture">
+    <div class="left">
+      <span class="number">{{ stats.cloturees }}</span>
+      <span class="label">Interconsultations clôturées</span>
+    </div>
+    <i class="pi pi-clock"></i>
+  </div>
+
+  <div class="stat-card urgence">
+    <div class="left">
+      <span class="number">{{ stats.urgences }}</span>
+      <span class="label">À traiter en urgence</span>
+    </div>
+    <i class="pi pi-exclamation-triangle"></i>
+  </div>
+</div>
+
+<!-- Tableau des interconsultations -->
+<app-table-interconsultation></app-table-interconsultation>

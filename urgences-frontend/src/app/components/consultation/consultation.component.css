@@ -1,0 +1,98 @@
+.top-bar {
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.25); 
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10; 
+
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+  }
+}
+/* Cards container */
+.stats-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Card style */
+.stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 15px;
+  flex: 1;
+  min-width: 200px;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  background: white; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .number {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .label {
+    font-size: 0.85rem;
+    color: #000; /* texte bas en noir */
+  }
+
+  i {
+    font-size: 1.8rem;
+  }
+}
+
+
+.total .number,
+.total i {
+  color: #007bff; 
+}
+
+.suivi .number,
+.suivi i {
+  color: #28a745; 
+}
+
+.cloture .number,
+.cloture i {
+  color: #6c757d; 
+}
+
+
+.urgence {
+  background: #e57373; 
+  color: white;
+}
+.urgence .label {
+  color: white;
+}
+.stats-container {
+  margin-bottom: 20px; 
+}
+:host {
+  display: block;
+  min-height: 100vh; 
+  background-color: rgba(216, 250, 252, 0.3);
+}
